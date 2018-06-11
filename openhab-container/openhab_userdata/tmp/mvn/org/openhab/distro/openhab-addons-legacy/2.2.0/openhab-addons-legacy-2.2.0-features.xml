@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" name="openhab-addons-legacy-2.2.0">
+    <feature name="openhab-binding-astro1" description="Astro Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/astro.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/astro</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.astro/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-dmx1" description="DMX OLA Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/dmx.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/dmx</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.dmx/1.11.0</bundle>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.dmx.ola/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-exec1" description="Exec Binding (1.x)" version="1.11.0">
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.exec/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-homematic1" description="Homematic Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/homematic.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/homematic</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.homematic/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-milight1" description="Milight Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/milight.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/milight</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.milight/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-nest1" description="Nest Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/nest.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/nest</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.nest/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-netatmo1" description="Netatmo Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/netatmo.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/netatmo</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.netatmo/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-networkhealth1" description="NetworkHealth Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/networkhealth.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/networkhealth</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.networkhealth/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-onkyo1" description="Onkyo Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/onkyo.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/onkyo</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <feature prerequisite="false" dependency="false">openhab-transport-serial</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.onkyo/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-plugwise1" description="Plugwise Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/plugwise.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/plugwise</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <feature prerequisite="false" dependency="false">openhab-transport-serial</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.plugwise/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-systeminfo1" description="System Info Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/systeminfo.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/systeminfo</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.systeminfo/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-tellstick1" description="Tellstick Binding (1.x)" version="1.11.0">
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.tellstick/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-urtsi1" description="Somfy URTSI II Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/urtsi.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/urtsi</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <feature prerequisite="false" dependency="false">openhab-transport-serial</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.urtsi/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-binding-zwave1" description="Z-Wave Binding (1.x)" version="1.11.0">
+        <configfile finalname="${openhab.conf}/services/zwave.cfg" override="false">mvn:org.openhab.addons/openhab-addons-external/1.11.0/cfg/zwave</configfile>
+        <feature prerequisite="false" dependency="false">openhab-runtime-base</feature>
+        <feature prerequisite="false" dependency="false">openhab-runtime-compat1x</feature>
+        <feature prerequisite="false" dependency="false">openhab-transport-serial</feature>
+        <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.zwave/1.11.0</bundle>
+    </feature>
+    <feature name="openhab-addons-legacy" description="openHAB Legacy Add-ons KAR" version="2.2.0">
+        <details>This is the openHAB distribution</details>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-astro1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-dmx1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-exec1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-homematic1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-milight1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-nest1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-netatmo1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-networkhealth1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-onkyo1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-plugwise1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-systeminfo1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-tellstick1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-urtsi1</feature>
+        <feature version="1.11.0" prerequisite="false" dependency="false">openhab-binding-zwave1</feature>
+    </feature>
+</features>

@@ -1,0 +1,12 @@
+osgi.wiring.package; (&(osgi.wiring.package=org.glassfish.hk2.osgiresourcelocator)(&(version>=1.0.0)(!(version>=2.0.0))))
+171; version=1.0.1
+osgi.wiring.package; (osgi.wiring.package=javax.inject)
+169; version=1.0.0
+osgi.wiring.package; (&(osgi.wiring.package=org.glassfish.hk2.utilities.reflection)(&(version>=2.4.0)(!(version>=3.0.0))))
+172; version=2.4.0
+osgi.wiring.package; (&(osgi.wiring.package=org.glassfish.hk2.utilities.general)(&(version>=2.4.0)(!(version>=3.0.0))))
+172; version=2.4.0
+osgi.wiring.package; (&(osgi.wiring.package=org.jvnet.hk2.component)(&(version>=2.4.0)(!(version>=3.0.0))))
+172; version=2.4.0
+osgi.wiring.package; (&(osgi.wiring.package=org.aopalliance.intercept)(&(version>=1.0.0)(!(version>=2.0.0))))
+168; version=1.0.0

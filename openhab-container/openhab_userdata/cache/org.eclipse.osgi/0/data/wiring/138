@@ -1,0 +1,56 @@
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.xtext)
+160; version=0.0.0
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.lsp4j.launch)
+101; version=0.2.1.v20170706-0855
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.xtext.ide)
+162; version=0.0.0
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.sitemap)
+148
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.xtext.resource.impl)
+160; version=0.0.0
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.xtext.util)
+160; version=0.0.0
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.rule.ide)
+143
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.smarthome.config.core)
+103; version=0.0.0
+osgi.ee; (&(osgi.ee=JavaSE)(version=1.8))
+0; version=[1.0.0, 1.1.0, 1.2.0, 1.3.0, 1.4.0, 1.5.0, 1.6.0, 1.7.0, 1.8.0]
+osgi.wiring.package; (osgi.wiring.package=javax.inject)
+169; version=1.0.0
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.rule)
+142
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.emf.common.util)
+70; version=0.0.0
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.script.ide)
+146
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.sitemap.ide)
+149
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.item)
+135
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.thing)
+151
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.lsp4j.services)
+101; version=0.2.1.v20170706-0855
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.persistence.ide)
+140
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.xtext.resource)
+160; version=0.0.0
+osgi.wiring.package; (osgi.wiring.package=com.google.inject)
+24; version=1.3.0
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.xtext.ide.server)
+162; version=0.0.0
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.thing.ide)
+152
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.script)
+145
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.xtext.workspace)
+160; version=0.0.0
+osgi.wiring.package; (osgi.wiring.package=org.slf4j)
+5; version=1.7.25
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.persistence)
+139
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.item.ide)
+136
+osgi.wiring.package; (osgi.wiring.package=org.eclipse.lsp4j.jsonrpc)
+102; version=0.2.1.v20170706-0855

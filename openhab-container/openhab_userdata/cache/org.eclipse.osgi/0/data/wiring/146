@@ -1,0 +1,12 @@
+osgi.wiring.bundle; (osgi.wiring.bundle=org.antlr.runtime)
+35
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.xtext.xbase.ide)
+165
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.smarthome.model.script)
+145
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.xtext.ide)
+162
+osgi.ee; (&(osgi.ee=JavaSE)(version=1.8))
+0; version=[1.0.0, 1.1.0, 1.2.0, 1.3.0, 1.4.0, 1.5.0, 1.6.0, 1.7.0, 1.8.0]
+osgi.wiring.bundle; (osgi.wiring.bundle=org.eclipse.xtext.xbase.lib)
+166

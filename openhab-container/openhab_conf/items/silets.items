@@ -1,0 +1,20 @@
+Switch gate_light "Світло на воротах"	{mqtt="<[mqtt:light/gate/state:state:default],
+                               >[mqtt:light/gate/command:command:ON:ON],
+                               >[mqtt:light/gate/command:command:OFF:OFF]", autoupdate="false"}
+
+Switch pirs_light "Світло на пірсі" {mqtt="<[mqtt:light/pirs/state:state:default], 
+					                     >[mqtt:light/pirs/command:command:ON:ON],
+					                     >[mqtt:light/pirs/command:command:OFF:OFF]"}
+
+
+Switch alarm "Alarm on"
+
+String alarm_msg "Alarm messages" {mqtt="<[mqtt:alarm:state:default]"}
+
+Switch gate_alive "Gate alive" {expire="25s,command=OFF"}
+
+
+String gate_heartbeat {mqtt="<[mqtt:gate/heartbeat:state:default]"}
+
+Number gate_Temperature "Температура [%.1f °C]"
+Number gate_Humidity "Вологість [%d %%]"

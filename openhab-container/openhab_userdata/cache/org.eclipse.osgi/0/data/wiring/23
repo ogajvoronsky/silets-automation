@@ -1,0 +1,4 @@
+osgi.wiring.package; (osgi.wiring.package=javax.annotation)
+0; version=1.0.0
+osgi.wiring.package; (osgi.wiring.package=sun.misc)
+0; version=0.0.0

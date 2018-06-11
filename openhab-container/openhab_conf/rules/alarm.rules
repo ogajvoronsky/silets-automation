@@ -1,0 +1,21 @@
+var sentPushes = 0
+
+rule "catch_switching_from_buttons"
+when
+    Item alarm_msg received update
+then
+  // logInfo("ALARM:", alarm_msg.state.toString)
+  // Check alarm context and conditions
+  if (alarm.state.toString != "ON") { return; }
+
+  switch alarm_msg.state.toString {
+    case (alarm_msg.state.toString == "gate button pressed") : 
+      sendTelegram("bot_silets", "CІЛЕЦЬ - ТРИВОГА! Вимикач світла на воротах.")
+    case (alarm_msg.state.toString == "gate motion start") : 
+      sendTelegram("bot_silets", "CІЛЕЦЬ - ТРИВОГА! рух на території в зоні воріт.")
+
+    default : logInfo("ALARM MSG:", alarm_msg.state.toString)
+  }
+
+end
+

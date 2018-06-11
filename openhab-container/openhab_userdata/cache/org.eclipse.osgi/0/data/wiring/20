@@ -1,0 +1,14 @@
+osgi.wiring.package; (&(osgi.wiring.package=com.fasterxml.jackson.core.type)(&(version>=2.4.5)(!(version>=2.5.0))))
+17; version=2.4.5
+osgi.wiring.package; (&(osgi.wiring.package=com.fasterxml.jackson.core.io)(&(version>=2.4.5)(!(version>=2.5.0))))
+17; version=2.4.5
+osgi.wiring.package; (&(osgi.wiring.package=com.fasterxml.jackson.core.util)(&(version>=2.4.5)(!(version>=2.5.0))))
+17; version=2.4.5
+osgi.wiring.package; (&(osgi.wiring.package=com.fasterxml.jackson.core.base)(&(version>=2.4.5)(!(version>=2.5.0))))
+17; version=2.4.5
+osgi.wiring.package; (&(osgi.wiring.package=com.fasterxml.jackson.core.format)(&(version>=2.4.5)(!(version>=2.5.0))))
+17; version=2.4.5
+osgi.wiring.package; (&(osgi.wiring.package=com.fasterxml.jackson.core.json)(&(version>=2.4.5)(!(version>=2.5.0))))
+17; version=2.4.5
+osgi.wiring.package; (&(osgi.wiring.package=com.fasterxml.jackson.core)(&(version>=2.4.5)(!(version>=2.5.0))))
+17; version=2.4.5

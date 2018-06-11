@@ -1,0 +1,34 @@
+2018-03-22 16:36:37.135 [INFO ] [.dashboard.internal.DashboardService] - Started dashboard at http://192.168.11.107:8080
+2018-03-22 16:36:37.143 [INFO ] [.dashboard.internal.DashboardService] - Started dashboard at https://192.168.11.107:8443
+2018-03-22 16:36:41.618 [INFO ] [thome.model.lsp.internal.ModelServer] - Started Language Server Protocol (LSP) service on port 5007
+2018-03-22 16:36:42.683 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'alarm.rules'
+2018-03-22 16:36:42.818 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'keepalive.rules'
+2018-03-22 16:36:42.874 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'silets.items'
+2018-03-22 16:36:43.022 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'silets.sitemap'
+2018-03-22 16:37:16.050 [INFO ] [er.internal.HomeBuilderDashboardTile] - Started Home Builder at /homebuilder
+2018-03-22 16:37:16.202 [INFO ] [basic.internal.servlet.WebAppServlet] - Started Basic UI at /basicui/app
+2018-03-22 16:37:16.249 [INFO ] [panel.internal.HABPanelDashboardTile] - Started HABPanel at /habpanel
+2018-03-22 16:37:16.281 [INFO ] [arthome.ui.paper.internal.PaperUIApp] - Started Paper UI at /paperui
+2018-03-22 16:39:32.212 [INFO ] [core.karaf.internal.FeatureInstaller] - Uninstalled 'openhab-binding-weatherunderground'
+2018-03-22 16:46:43.179 [INFO ] [er.internal.HomeBuilderDashboardTile] - Started Home Builder at /homebuilder
+2018-03-22 16:46:43.757 [INFO ] [.dashboard.internal.DashboardService] - Started dashboard at http://192.168.11.107:8080
+2018-03-22 16:46:43.760 [INFO ] [.dashboard.internal.DashboardService] - Started dashboard at https://192.168.11.107:8443
+2018-03-22 16:46:48.759 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'silets.items'
+2018-03-22 16:46:49.775 [INFO ] [thome.model.lsp.internal.ModelServer] - Started Language Server Protocol (LSP) service on port 5007
+2018-03-22 16:46:50.127 [INFO ] [basic.internal.servlet.WebAppServlet] - Started Basic UI at /basicui/app
+2018-03-22 16:46:51.124 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'keepalive.rules'
+2018-03-22 16:46:51.322 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'silets.sitemap'
+2018-03-22 16:46:51.558 [INFO ] [panel.internal.HABPanelDashboardTile] - Started HABPanel at /habpanel
+2018-03-22 16:46:51.588 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'alarm.rules'
+2018-03-22 16:46:51.629 [INFO ] [arthome.ui.paper.internal.PaperUIApp] - Started Paper UI at /paperui
+2018-03-22 16:49:54.472 [INFO ] [er.internal.HomeBuilderDashboardTile] - Started Home Builder at /homebuilder
+2018-03-22 16:49:55.323 [INFO ] [.dashboard.internal.DashboardService] - Started dashboard at http://192.168.11.107:8080
+2018-03-22 16:49:55.325 [INFO ] [.dashboard.internal.DashboardService] - Started dashboard at https://192.168.11.107:8443
+2018-03-22 16:49:59.788 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'silets.items'
+2018-03-22 16:50:00.299 [INFO ] [panel.internal.HABPanelDashboardTile] - Started HABPanel at /habpanel
+2018-03-22 16:50:01.486 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'silets.sitemap'
+2018-03-22 16:50:02.144 [INFO ] [thome.model.lsp.internal.ModelServer] - Started Language Server Protocol (LSP) service on port 5007
+2018-03-22 16:50:03.373 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'keepalive.rules'
+2018-03-22 16:50:03.630 [INFO ] [el.core.internal.ModelRepositoryImpl] - Loading model 'alarm.rules'
+2018-03-22 16:50:04.027 [INFO ] [basic.internal.servlet.WebAppServlet] - Started Basic UI at /basicui/app
+2018-03-22 16:50:04.031 [INFO ] [arthome.ui.paper.internal.PaperUIApp] - Started Paper UI at /paperui

@@ -1,0 +1,24 @@
+{
+    "device": {
+        "id": "silets_gate_esp"
+    },
+    "aws": {
+        "thing_name": "esp8266_silets_gate"
+    },
+    "wifi": {
+        "sta": {
+            "enable": true,
+            "ssid": "M",
+            "pass": "Scherbata32"
+        },
+        "ap": {
+            "enable": false
+        }
+    },
+    "mqtt": {
+        "enable": true,
+        "server": "m11.cloudmqtt.com:16178",
+        "user": "xjmbtxje",
+        "pass": "An_gxdx67pRs"
+    }
+}

@@ -1,0 +1,71 @@
+2018-03-22 16:36:45.445 [thome.event.ExtensionEvent] - Extension 'binding-weatherunderground' has been installed.
+2018-03-22 16:37:12.519 [thome.event.ExtensionEvent] - Extension 'package-standard' has been installed.
+2018-03-22 16:37:16.296 [thome.event.ExtensionEvent] - Extension 'ui-homebuilder' has been installed.
+2018-03-22 16:37:16.299 [thome.event.ExtensionEvent] - Extension 'ui-basic' has been installed.
+2018-03-22 16:37:16.301 [thome.event.ExtensionEvent] - Extension 'ui-habpanel' has been installed.
+2018-03-22 16:37:16.303 [thome.event.ExtensionEvent] - Extension 'ui-paper' has been installed.
+2018-03-22 16:37:30.565 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:30.578 [vent.ItemStateChangedEvent] - alarm changed from NULL to ON
+2018-03-22 16:37:31.560 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:31.574 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:32.393 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:32.399 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:33.136 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:33.140 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:33.992 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:33.998 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:34.740 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:34.742 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:35.490 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:35.493 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:36.218 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:36.231 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:36.911 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:36.914 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:37.638 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:37.641 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:38.494 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:38.497 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:39.329 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:39.333 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:40.157 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:40.158 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:40.953 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:40.959 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:41.811 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:41.823 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:42.638 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:42.643 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:43.436 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:43.438 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:44.191 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:44.194 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:45.091 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:45.093 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:45.991 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:45.996 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:47.035 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:47.041 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:47.988 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:47.992 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:48.904 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:48.908 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:49.807 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:49.811 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:50.651 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:50.652 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:51.459 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:51.460 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:52.233 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:52.236 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:53.309 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:53.313 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:54.156 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:54.162 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:55.806 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:55.808 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:37:56.666 [ome.event.ItemCommandEvent] - Item 'alarm' received command ON
+2018-03-22 16:37:56.668 [vent.ItemStateChangedEvent] - alarm changed from OFF to ON
+2018-03-22 16:37:57.655 [ome.event.ItemCommandEvent] - Item 'alarm' received command OFF
+2018-03-22 16:37:57.660 [vent.ItemStateChangedEvent] - alarm changed from ON to OFF
+2018-03-22 16:39:32.222 [thome.event.ExtensionEvent] - Extension 'binding-weatherunderground' has been uninstalled.

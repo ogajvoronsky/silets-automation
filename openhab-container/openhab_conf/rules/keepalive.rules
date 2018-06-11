@@ -1,0 +1,22 @@
+rule "update_gate_keepalive"
+when
+    Item gate_heartbeat received update 
+then
+    gate_alive.sendCommand(ON)
+    gate_Temperature.postUpdate(transform("JSONPATH", "$.gate_heartbeat.temp", gate_heartbeat.state.toString))
+    gate_Humidity.postUpdate(transform("JSONPATH", "$.gate_heartbeat.hum", gate_heartbeat.state.toString))
+end
+
+rule "send_lost_connection_alert"
+when
+  Item gate_alive changed from ON to OFF
+then
+  sendTelegram("bot_silets","СІЛЕЦЬ - УВАГА! Втрачено зв'язок з контроллером на воротах")
+end
+
+rule "send_return_connection_alert"
+when
+  Item gate_alive changed from OFF to ON
+then
+  sendTelegram("bot_silets","СІЛЕЦЬ - Зв'язок з контроллером на воротах відновлено! :)")
+end

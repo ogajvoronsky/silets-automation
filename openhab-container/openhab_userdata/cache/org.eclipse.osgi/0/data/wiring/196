@@ -1,0 +1,8 @@
+osgi.wiring.package; (osgi.wiring.package=javax.crypto.spec)
+0; version=0.0.0
+osgi.wiring.package; (osgi.wiring.package=javax.net)
+0; version=0.0.0
+osgi.wiring.package; (osgi.wiring.package=javax.crypto)
+0; version=0.0.0
+osgi.wiring.package; (osgi.wiring.package=javax.net.ssl)
+0; version=0.0.0
