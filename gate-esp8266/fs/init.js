@@ -27,7 +27,7 @@ let long_press_time = 1000; // ms
 // MQTT namespace
 let cmd_topic = 'silets/gate/light/command'; // command topic (we receive)
 let sta_topic = 'silets/gate/light/state'; // state topic (we publish)
-let alarm_topic = 'silets/gate/alarm';
+let alarm_topic = 'silets/alarm';
 let heartbeat = 'silets/gate/heartbeat';
 let tower_cmd_topic = 'silets/tower/light/command';
 let evs = '???'; //network state
@@ -146,11 +146,11 @@ Timer.set(500 /* 0.5 sec */ , Timer.REPEAT, function() {
     if (state !== pir_state) {
         pir_state = state;
         if (pir_state) {
-            MQTT.pub(alarm_topic, "Motion start", 0);
+            MQTT.pub(alarm_topic, "gate motion start", 0);
             print('Motion started');
         } else {
             print('Motion ended');
-            MQTT.pub(alarm_topic, "Motion end", 0);
+            MQTT.pub(alarm_topic, "gate motion end", 0);
         }
     }
 }, null);

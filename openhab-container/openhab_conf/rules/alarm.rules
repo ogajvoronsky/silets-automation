@@ -10,9 +10,13 @@ then
 
   switch alarm_msg.state.toString {
     case (alarm_msg.state.toString == "gate button pressed") : 
-      sendTelegram("bot_silets", "CІЛЕЦЬ - ТРИВОГА! Вимикач світла на воротах.")
+      sendTelegram("bot_silets", "CІЛЕЦЬ - ТРИВОГА! Вимикач ворота.")
+    case (alarm_msg.state.toString == "tower button pressed") : 
+      sendTelegram("bot_silets", "CІЛЕЦЬ - ТРИВОГА! Вимикач ворота.")
     case (alarm_msg.state.toString == "gate motion start") : 
-      sendTelegram("bot_silets", "CІЛЕЦЬ - ТРИВОГА! рух на території в зоні воріт.")
+      sendTelegram("bot_silets", "CІЛЕЦЬ - ТРИВОГА! ВОРОТА! - рух.")
+    case (alarm_msg.state.toString == "tower motion start") : 
+      sendTelegram("bot_silets", "CІЛЕЦЬ - ТРИВОГА! ПІРС - рух.")
 
     default : logInfo("ALARM MSG:", alarm_msg.state.toString)
   }

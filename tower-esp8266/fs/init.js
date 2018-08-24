@@ -1,4 +1,4 @@
-// For light on tower
+// For lights on tower
 load('api_config.js');
 load('api_rpc.js');
 load('api_dht.js');
@@ -32,7 +32,7 @@ let sta1_topic = 'silets/tower/light1/state'; // state topic (we publish)
 let cmd2_topic = 'silets/tower/light2/command'; // command topic (we receive)
 let sta2_topic = 'silets/tower/light2/state'; // state topic (we publish)
 let cmd_topic  = 'silets/tower/light/command'; // command topic for 2 lights
-let alarm_topic = 'silets/tower/alarm';
+let alarm_topic = 'silets/alarm';
 let heartbeat = 'silets/tower/heartbeat';
 let gate_cmd_topic = 'silets/gate/light/command';
 let evs = '???'; //network state
@@ -69,7 +69,7 @@ let sw = function(pin,val) {
         MQTT.pub(sta2_topic, (val===ON) ? 'ON': 'OFF',1,1);
         state_load2 = !val;
     };
-       
+          
 };
 
 
@@ -158,7 +158,7 @@ GPIO.set_button_handler(button1_pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200, funct
     sw_toggle(load1_pin);
     print('Switch1 turned to', state_load1 ? 'ON' : 'OFF');
     state_load1 ? MQTT.pub(cmd1_topic, 'ON', 1, 1) : MQTT.pub(cmd1_topic, 'OFF', 1, 1); // for perstistency
-    MQTT.pub(alarm_topic, "Button pressed", 0);
+    MQTT.pub(alarm_topic, "tower button pressed", 0);
     Timer.set(long_press_time, 0, function() {
         // 1 sec since button press - check if button still pressed
         !GPIO.read(button1_pin) ? long_press_toggle();
@@ -169,7 +169,7 @@ GPIO.set_button_handler(button2_pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200, funct
     sw_toggle(load2_pin);
     print('Switch2 turned to', state_load2 ? 'ON' : 'OFF');
     state_load2 ? MQTT.pub(cmd2_topic, 'ON', 1, 1) : MQTT.pub(cmd2_topic, 'OFF', 1, 1); // for perstistency
-    MQTT.pub(alarm_topic, "Button pressed", 0);
+    MQTT.pub(alarm_topic, "tower button pressed", 0);
     Timer.set(long_press_time, 0, function() {
         // 1 sec since button press - check if button still pressed
         !GPIO.read(button2_pin) ? long_press_toggle();
@@ -198,11 +198,11 @@ Timer.set(500 /* 0.5 sec */ , Timer.REPEAT, function() {
     if (state !== pir_state) {
         pir_state = state;
         if (pir_state) {
-            MQTT.pub(alarm_topic, "Motion start", 0);
+            MQTT.pub(alarm_topic, "tower motion start", 0);
             print('Motion started');
         } else {
             print('Motion ended');
-            MQTT.pub(alarm_topic, "Motion end", 0);
+            MQTT.pub(alarm_topic, "tower motion end", 0);
         }
     }
 }, null);

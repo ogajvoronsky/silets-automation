@@ -7,16 +7,39 @@ then
     gate_Humidity.postUpdate(transform("JSONPATH", "$.gate_heartbeat.hum", gate_heartbeat.state.toString))
 end
 
-rule "send_lost_connection_alert"
+rule "update_tower_keepalive"
+when
+    Item tower_heartbeat received update 
+then
+    tower_alive.sendCommand(ON)
+end
+
+rule "send_lost_connection_alert_gate"
 when
   Item gate_alive changed from ON to OFF
 then
-  sendTelegram("bot_silets","СІЛЕЦЬ - УВАГА! Втрачено зв'язок з контроллером на воротах")
+  sendTelegram("bot_silets","СІЛЕЦЬ - УВАГА! ВОРОТА. Втрачено зв'язок.")
 end
 
-rule "send_return_connection_alert"
+rule "send_return_connection_alert_gate"
 when
   Item gate_alive changed from OFF to ON
 then
-  sendTelegram("bot_silets","СІЛЕЦЬ - Зв'язок з контроллером на воротах відновлено! :)")
+  sendTelegram("bot_silets","СІЛЕЦЬ - ВОРОТА. Зв'язок відновлено! :)")
 end
+
+rule "send_lost_connection_alert_tower"
+when
+  Item tower_alive changed from ON to OFF
+then
+  sendTelegram("bot_silets","СІЛЕЦЬ - УВАГА! ВЕЖА. Втрачено зв'язок.")
+end
+
+rule "send_return_connection_alert_gate"
+when
+  Item tower_alive changed from OFF to ON
+then
+  sendTelegram("bot_silets","СІЛЕЦЬ - ВЕЖА. Зв'язок відновлено! :)")
+end
+
+
