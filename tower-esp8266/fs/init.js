@@ -20,8 +20,8 @@ let load1_pin = 5; // Pin the relay is connected to
 let load2_pin = 14;
 let pir_pin = 16; // PIR sensor  (connects to ground then motion detected)
 let pir_state = 0; // low level - no motion
-
-let ON = 0; // GPIO output logical levels
+// GPIO output logical levels
+let ON = 0; 
 let OFF = 1;
 let state_load1 = 0; // Initial state of light (OFF)
 let state_load2 = 0; // Initial state of light (OFF)
@@ -46,7 +46,9 @@ GPIO.set_mode(load1_pin, GPIO.MODE_OUTPUT);
 GPIO.set_mode(load2_pin, GPIO.MODE_OUTPUT);
 GPIO.set_mode(pir_pin, GPIO.MODE_INPUT);
 GPIO.set_pull(pir_pin, GPIO.PULL_DOWN);
-GPIO.write(load_pin, !state);
+GPIO.write(load1_pin, !state_load1);
+GPIO.write(load2_pin, !state_load2);
+
 
 
 // Functions
@@ -58,17 +60,17 @@ let sw = function(pin,val) {
         GPIO.write(load2_pin, val);
         MQTT.pub(sta2_topic, (val===ON) ? 'ON': 'OFF',1,1);
         state_load2 = !val;
-    };
+    }
     if (pin === load1_pin) {
         GPIO.write(load_pin1, val);
         MQTT.pub(sta1_topic, (val===ON) ? 'ON': 'OFF',1,1);
         state_load1 = !val;
-    };
+    }
     if (pin === load2_pin) {
         GPIO.write(load2_pin, val);
         MQTT.pub(sta2_topic, (val===ON) ? 'ON': 'OFF',1,1);
         state_load2 = !val;
-    };
+    }
           
 };
 
@@ -77,14 +79,14 @@ let sw_toggle = function(pin) {
     if (pin === 'all') {
         sw(load1_pin, state_load1);
         sw(load2_pin, state_load2);
-    };
+    }
 
     if (pin === load1_pin) {
         sw(load1_pin, state_load1);
-    };
+    }
     if (pin === load2_pin) {
         sw(load2_pin, state_load2);
-    };
+    }
 };
 
 let long_press_toggle = function() {
@@ -112,44 +114,44 @@ let getInfo = function() {
 };
 
 
-// Subscribe for incoming commands
+//Subscribe for incoming commands
 MQTT.sub(cmd_topic, function(conn, topic, msg) {
     print('MQTT recieved topic:', topic, 'message:', msg);
     if (msg === 'ON') {
         sw('all', ON);
-    };
+    }
     if (msg === 'OFF') {
         sw('all', OFF);
-    };
+    }
     if (msg === 'TOGGLE') {
         sw_toggle('all');
-    };
+    }
 }, null);
 
 MQTT.sub(cmd1_topic, function(conn, topic, msg) {
     print('MQTT recieved topic:', topic, 'message:', msg);
     if (msg === 'ON') {
         sw(load1_pin, ON);
-    };
+    }
     if (msg === 'OFF') {
         sw(load1_pin, OFF);
-    };
+    }
     if (msg === 'TOGGLE') {
         sw_toggle(load1_pin);
-    };
+    }
 }, null);
 
 MQTT.sub(cmd2_topic, function(conn, topic, msg) {
     print('MQTT recieved topic:', topic, 'message:', msg);
     if (msg === 'ON') {
         sw(load2_pin, ON);
-    };
+    }
     if (msg === 'OFF') {
         sw(load2_pin, OFF);
-    };
+    }
     if (msg === 'TOGGLE') {
         sw_toggle(load2_pin);
-    };
+    }
 }, null);
 
 
@@ -159,9 +161,9 @@ GPIO.set_button_handler(button1_pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200, funct
     print('Switch1 turned to', state_load1 ? 'ON' : 'OFF');
     state_load1 ? MQTT.pub(cmd1_topic, 'ON', 1, 1) : MQTT.pub(cmd1_topic, 'OFF', 1, 1); // for perstistency
     MQTT.pub(alarm_topic, "tower button pressed", 0);
-    Timer.set(long_press_time, 0, function() {
+    Timer.set(long_press_time, false, function() {
         // 1 sec since button press - check if button still pressed
-        !GPIO.read(button1_pin) ? long_press_toggle();
+        if (GPIO.read(button1_pin) === 1) { long_press_toggle(); }
     }, null);
 }, null);
 
@@ -172,7 +174,7 @@ GPIO.set_button_handler(button2_pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200, funct
     MQTT.pub(alarm_topic, "tower button pressed", 0);
     Timer.set(long_press_time, 0, function() {
         // 1 sec since button press - check if button still pressed
-        !GPIO.read(button2_pin) ? long_press_toggle();
+        if (GPIO.read(button2_pin) === 1) { long_press_toggle(); }
     }, null);
 }, null);
 
@@ -186,10 +188,9 @@ GPIO.set_button_handler(button2_pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200, funct
 GPIO.write(led_pin, OFF);
 Timer.set(4000 /* 4 sec */ , Timer.REPEAT, function() {
     GPIO.write(led_pin, OFF);
-    if (evs === 'GOT_IP') { led_flash(1) } else
-    if (evs === 'CONNECTING') { led_flash(2) } else
-    if (evs === 'DISCONNECTED') { led_flash(3) }
-
+    if (evs === 'GOT_IP') { led_flash(1); } else
+    if (evs === 'CONNECTING') { led_flash(2); } else
+    if (evs === 'DISCONNECTED') { led_flash(3); }
 }, null);
 
 // polling motion sensor
@@ -211,6 +212,7 @@ Timer.set(500 /* 0.5 sec */ , Timer.REPEAT, function() {
 // for heartbeat or keepalive purpose)
 Timer.set(10000 /* 10 sec */ , Timer.REPEAT, function() {
     MQTT.pub(heartbeat, getInfo(), 0, 0);
+    print(getInfo());
 }, null);
 
 
