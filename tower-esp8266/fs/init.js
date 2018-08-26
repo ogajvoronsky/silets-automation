@@ -14,17 +14,17 @@ load('api_pwm.js');
 
 // pins & mqtt topics
 let led_pin = 2; // status led
-let button1_pin = 0; // Button (ground-470 Ohm)
-let button2_pin = 4;
-let load1_pin = 5; // Pin the relay is connected to
-let load2_pin = 14;
-let pir_pin = 16; // PIR sensor  (connects to ground then motion detected)
+let button1_pin = 0; // D3 Button (ground-470 Ohm)
+let button2_pin = 4; // D2
+let load1_pin = 5; // D1 Pin the relay is connected to
+let load2_pin = 14; // D5
+let pir_pin = 16; // D0 PIR sensor  (connects to ground then motion detected)
 let pir_state = 0; // low level - no motion
 
 let ON = 0; // GPIO output logical levels
 let OFF = 1;
-let state_load1 = 0; // Initial state of light (OFF)
-let state_load2 = 0; // Initial state of light (OFF)
+let load1_state = 0; // Initial state of light (OFF)
+let load2_state = 0; // Initial state of light (OFF)
 let long_press_time = 1000; // ms
 // MQTT namespace
 let cmd1_topic = 'silets/tower/light1/command'; // command topic (we receive)
@@ -46,45 +46,46 @@ GPIO.set_mode(load1_pin, GPIO.MODE_OUTPUT);
 GPIO.set_mode(load2_pin, GPIO.MODE_OUTPUT);
 GPIO.set_mode(pir_pin, GPIO.MODE_INPUT);
 GPIO.set_pull(pir_pin, GPIO.PULL_DOWN);
-GPIO.write(load_pin, !state);
+GPIO.write(load1_pin, !load1_state);
+GPIO.write(load2_pin, !load2_state);
+
 
 
 // Functions
 let sw = function(pin,val) {
     if (pin === 'all') {
         GPIO.write(load1_pin, val);
-        MQTT.pub(sta1_topic, (val===ON) ? 'ON': 'OFF',1,1);
-        state_load1 = !val;
+        MQTT.pub(sta1_topic, (val === ON) ? 'ON': 'OFF',1,1);
+        load1_state = val;
         GPIO.write(load2_pin, val);
-        MQTT.pub(sta2_topic, (val===ON) ? 'ON': 'OFF',1,1);
-        state_load2 = !val;
-    };
+        MQTT.pub(sta2_topic, (val === ON) ? 'ON': 'OFF',1,1);
+        load2_state = val;
+    }
     if (pin === load1_pin) {
-        GPIO.write(load_pin1, val);
-        MQTT.pub(sta1_topic, (val===ON) ? 'ON': 'OFF',1,1);
-        state_load1 = !val;
-    };
+        GPIO.write(load1_pin, val);
+        MQTT.pub(sta1_topic, (val === ON) ? 'ON': 'OFF',1,1);
+        load1_state = val;
+    }
     if (pin === load2_pin) {
         GPIO.write(load2_pin, val);
-        MQTT.pub(sta2_topic, (val===ON) ? 'ON': 'OFF',1,1);
-        state_load2 = !val;
-    };
+        MQTT.pub(sta2_topic, (val === ON) ? 'ON': 'OFF',1,1);
+        load2_state = val;
+    }
           
 };
 
 
 let sw_toggle = function(pin) {
     if (pin === 'all') {
-        sw(load1_pin, state_load1);
-        sw(load2_pin, state_load2);
-    };
-
+        (load1_state === OFF) ? sw(load1_pin, ON) : sw(load1_pin, OFF);
+        (load2_state === OFF) ? sw(load2_pin, ON) : sw(load2_pin, OFF);
+    }
     if (pin === load1_pin) {
-        sw(load1_pin, state_load1);
-    };
+        (load1_state === OFF) ? sw(load1_pin, ON) : sw(load1_pin, OFF);
+    }
     if (pin === load2_pin) {
-        sw(load2_pin, state_load2);
-    };
+        (load2_state === OFF) ? sw(load2_pin, ON) : sw(load2_pin, OFF);
+    }
 };
 
 let long_press_toggle = function() {
@@ -117,23 +118,23 @@ MQTT.sub(cmd_topic, function(conn, topic, msg) {
     print('MQTT recieved topic:', topic, 'message:', msg);
     if (msg === 'ON') {
         sw('all', ON);
-    };
+    }
     if (msg === 'OFF') {
         sw('all', OFF);
-    };
+    }
     if (msg === 'TOGGLE') {
         sw_toggle('all');
-    };
+    }
 }, null);
 
 MQTT.sub(cmd1_topic, function(conn, topic, msg) {
     print('MQTT recieved topic:', topic, 'message:', msg);
     if (msg === 'ON') {
         sw(load1_pin, ON);
-    };
+    }
     if (msg === 'OFF') {
         sw(load1_pin, OFF);
-    };
+    }
     if (msg === 'TOGGLE') {
         sw_toggle(load1_pin);
     };
@@ -143,37 +144,40 @@ MQTT.sub(cmd2_topic, function(conn, topic, msg) {
     print('MQTT recieved topic:', topic, 'message:', msg);
     if (msg === 'ON') {
         sw(load2_pin, ON);
-    };
+    }
     if (msg === 'OFF') {
         sw(load2_pin, OFF);
-    };
+    }
     if (msg === 'TOGGLE') {
         sw_toggle(load2_pin);
-    };
+    }
 }, null);
 
 
 // Toggle load on a button press. 
 GPIO.set_button_handler(button1_pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200, function() {
     sw_toggle(load1_pin);
-    print('Switch1 turned to', state_load1 ? 'ON' : 'OFF');
-    state_load1 ? MQTT.pub(cmd1_topic, 'ON', 1, 1) : MQTT.pub(cmd1_topic, 'OFF', 1, 1); // for perstistency
+    print('Switch1 turned to', (load1_state === ON) ? 'ON' : 'OFF');
+    (load1_state === ON) ? MQTT.pub(cmd1_topic, 'ON', 1, 1) : MQTT.pub(cmd1_topic, 'OFF', 1, 1); // for perstistency
     MQTT.pub(alarm_topic, "tower button pressed", 0);
     Timer.set(long_press_time, 0, function() {
         // 1 sec since button press - check if button still pressed
-        !GPIO.read(button1_pin) ? long_press_toggle();
+        if (GPIO.read(button1_pin) === ON ) { 
+            long_press_toggle();
+            sw_toggle(load1_pin);
+        }  
     }, null);
 }, null);
 
 GPIO.set_button_handler(button2_pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200, function() {
     sw_toggle(load2_pin);
-    print('Switch2 turned to', state_load2 ? 'ON' : 'OFF');
-    state_load2 ? MQTT.pub(cmd2_topic, 'ON', 1, 1) : MQTT.pub(cmd2_topic, 'OFF', 1, 1); // for perstistency
+    print('Switch2 turned to', (load2_state === ON) ? 'ON' : 'OFF');
+    (load2_state === 0) ? MQTT.pub(cmd2_topic, 'ON', 1, 1) : MQTT.pub(cmd2_topic, 'OFF', 1, 1); // for perstistency
     MQTT.pub(alarm_topic, "tower button pressed", 0);
-    Timer.set(long_press_time, 0, function() {
-        // 1 sec since button press - check if button still pressed
-        !GPIO.read(button2_pin) ? long_press_toggle();
-    }, null);
+    // Timer.set(long_press_time, 0, function() {
+    //     // 1 sec since button press - check if button still pressed
+    //     !GPIO.read(button2_pin) ? long_press_toggle();
+    // }, null);
 }, null);
 
 

@@ -49,17 +49,17 @@ let dht_sensor = DHT.create(dht_pin, DHT.DHT22);
 let sw_on = function() {
     GPIO.write(load_pin, ON); // low level turns relay ON
     MQTT.pub(sta_topic, 'ON', 1, 1);
-    state = 1;
+    state = ON;
 };
 
 let sw_off = function() {
     GPIO.write(load_pin, OFF); // high level turns relay OFF
     MQTT.pub(sta_topic, 'OFF', 1, 1);
-    state = 0;
+    state = OFF;
 };
 
 let sw_toggle = function() {
-    state ? sw_off() : sw_on();
+    (state === ON) ? sw_off() : sw_on();
 };
 
 let long_press_toggle = function() {
@@ -118,11 +118,11 @@ MQTT.sub(cmd_topic, function(conn, topic, msg) {
 GPIO.set_button_handler(button_pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200, function() {
     sw_toggle();
     print('Switch turned to', state ? 'ON' : 'OFF');
-    state ? MQTT.pub(cmd_topic, 'ON', 1, 1) : MQTT.pub(cmd_topic, 'OFF', 1, 1); // for perstistency
-    MQTT.pub(alarm_topic, "Button pressed", 0);
+    (state === ON) ? MQTT.pub(cmd_topic, 'ON', 1, 1) : MQTT.pub(cmd_topic, 'OFF', 1, 1); // for perstistency
+    MQTT.pub(alarm_topic, "gate button pressed", 0);
     Timer.set(long_press_time, 0, function() {
         // 1 sec since button press - check if button still pressed
-        !GPIO.read(button_pin) ? long_press_toggle();
+        (GPIO.read(button_pin) === ON) ? long_press_toggle();
     }, null);
 }, null);
 

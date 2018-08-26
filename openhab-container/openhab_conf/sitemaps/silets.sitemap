@@ -3,7 +3,8 @@ sitemap silets label="Сілець" {
   Frame label="Освітлення" {
     Switch item=gate_light label="ВОРОТА" icon="light" visibility=[gate_alive==ON]
     Text item=gate_light label="ВОРОТА (немає зв'язку)" icon="light" visibility=[gate_alive!=ON]
-    Switch item=pirs_light label="ПРИЧАЛ" icon="light"
+    Switch item=tower_light1 label="ПРИЧАЛ" icon="light"
+    Switch item=tower_light2 label="МАНГАЛ" icon="light"
   }
   Frame label="Охорона" {
     Switch item=alarm label="ОХОРОНА" icon="shield"
