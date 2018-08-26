@@ -4,12 +4,12 @@ Switch gate_light "Світло на воротах"	{mqtt="<[mqtt:silets/gate/l
 
 Switch tower_light1 "Світло на пірс" {mqtt="<[mqtt:silets/tower/light1/state:state:default], 
 					                     >[mqtt:silets/tower/light1/command:command:ON:ON],
-					                     >[mqtt:silets/tower/light1/command:command:OFF:OFF]"}
+					                     >[mqtt:silets/tower/light1/command:command:OFF:OFF]", autoupdate="false"}
 
 
 Switch tower_light2 "Світло на мангал" {mqtt="<[mqtt:silets/tower/light2/state:state:default], 
 					                     >[mqtt:silets/tower/light2/command:command:ON:ON],
-					                     >[mqtt:silets/tower/light2/command:command:OFF:OFF]"}
+					                     >[mqtt:silets/tower/light2/command:command:OFF:OFF]", autoupdate="false"}
 
 
 Switch alarm "Alarm on"
